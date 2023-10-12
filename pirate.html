@@ -155,7 +155,6 @@
                 checkCount++;
                 penalty++;
             }
-    
             if(penalty<0)
                     penalty =0;
             var locationsElement = document.getElementById("locations");
@@ -176,8 +175,6 @@
 
             row_Difference = Math.abs(row_Treasure - row_LastCheck);
             col_Difference = Math.abs(col_Treasure - col_LastCheck);
-
-
             if ((row_Difference ==+1 && col_Difference === 0) || (row_Difference === 0 && col_Difference === 1)) {
                 document.getElementById("help").textContent = "Can smell it";
             } 
