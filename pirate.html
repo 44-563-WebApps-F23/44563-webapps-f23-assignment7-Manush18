@@ -124,7 +124,7 @@
         var gameOver=false;
         
         for(var i=0;i<25;i++){
-            ids.push('img{i}');
+            ids.push('img${i}');
         }
         function check(position){
             if (gameOver){
@@ -158,23 +158,26 @@
 
                 var row_Treasure = Math.floor(treasurelocation / 5);
                 var col_Treasure = treasurelocation % 5;
+                var row_LastCheck = Math.floor(lastCheck/5);
+                var col_LastCheck = lastCheck%5;
 
                 row_Difference = Math.abs(row_Treasure - row_LastCheck);
                 col_Difference = Math.abs(col_Treasure - col_LastCheck);
 
                 if ((row_Difference===1 && col_Difference=== 0)||(row_Difference==0 && col_Difference ===1)){
-                    document.getElementById("help").textContent = "can smell it";
+                    document.getElementById("help").textContent = "Can smell it";
 
+                }
+                else if(row_Difference + col_Difference === 2){
+                    documnet.getElementById("help").textContent = "Close Matie";
                 }
                 else{
-                    document.getElement
+                    documnet.getElementById("help").textContent = "step Faster";
                 }
-
-            }
-
-            
-
-
+                penalty +=2;
+                document.getElementById("penalty").textContent='Penalty is ${penalty}.';
+                }
+                document.getElementById("help").textContent= helpText;
 
     </script>
    
