@@ -13,11 +13,12 @@
 
   <h2>Manush Kumar Kachakayala Shows</h2><br>
 
-  <b><div id="target" style="color: rgb(217, 15, 15); background-color: rgb(234, 231, 219);">Your time</div><br></b>
-  <b><div id="counter" style="color:rgb(18, 136, 53); background-color: rgb(221, 221, 208);">Count</div><br></b>
+  <b><div id="target" style="color: blue; background-color: rgb(219, 227, 234);">Your time</div><br></b>
+  <b><div id="counter" style="color:rgb(2, 36, 36); background-color: beige;">Count</div><br></b>
 
   <button type="button" class="btn btn-primary" onclick="startTime()">Start Timer</button>
   <button type="button" class="btn btn-primary" onClick="recordTime()">React</button>
+  <button type="button" class="btn btn-primary" onclick="randomStart()">Random Start</button>
 
   
   <script> 
@@ -47,7 +48,11 @@
     }, 8000)
   }
 
- 
+  //Bonus
+  function randomStart(){
+        startCount = Math.floor(Math.random()*(10-2+1)+2)
+        startTime()
+    }
   </script>
 
 </body>

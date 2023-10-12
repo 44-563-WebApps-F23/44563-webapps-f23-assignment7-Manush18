@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html> <head> <style>
+    .flex-container {
+      display: flex;  flex-direction:row;
+      background-color: rgb(64, 195, 205);
+  }
+
+.flex-container > div {  /*div children of the flex container*/
+  background-color: #911e1e; 
+  margin: 10px;  padding: 20px;  font-size: 30px;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) { 
+	 .flex-container{
+		 flex-direction:column;
+		 background-color: rgb(75, 18, 161);
+	  }
+	}
+</style>
+<title>Directory of merging</title></head>
+<body>
+	<h1>Manush Kumar Kachakayala's merger</h1>
+	<br>
+	<label for="text">Enter Text: </label>
+	<input type="text" id="inputText" name="text" placeholder="Enter any text" autofocus>
+	<br><br>
+		<div class="flex-container" id="target">
+		  <div class="merger">row item 1</div>   
+		  <div class="merger">row item 2</div>  
+		  <div class="merger">row item 3</div>  
+		</div>
+	
+	<p> Press the button to create an new element of type div and then add it to the container.</p>
+	<div class="container" style="text-align: center;">
+		<button type="button" class="btn btn-primary" onclick="makeNewDiv()">Add end</button>
+		<button type="button" class="btn btn-primary" onclick="addFront()">Add front</button>
+		<button type="button" class="btn btn-primary" onclick="remove()">Remove</button>
+		<button class="btn btn-primary" onclick="swapElements()">Swap</button>
+	</div>	
+	
+</body>
+<script>
+	function makeNewDiv() {
+        var element = document.createElement("div")
+        element.innerHTML = document.getElementById("inputText").value;
+        element.className = "merger";
+		element.style.color = "orange"
+        
+        var container = document.getElementById('target')
+        container.appendChild(element)
+    }
+
+	function remove() {
+        var mergerItems = document.getElementsByClassName("merger");
+        var lengthOfMergerItems = mergerItems.length;
+        var middleIndex = Math.floor(lengthOfMergerItems / 2);
+        if (lengthOfMergerItems > 0) {
+            mergerItems[middleIndex].remove();
+        }
+    }
+
+    function addFront() {
+        var newElement = document.createElement("div");
+        newElement.innerHTML = document.getElementById("inputText").value;
+        newElement.className = "merger";
+		newElement.style.color = "blue";
+
+        var container = document.getElementById('target');
+        container.insertBefore(newElement, container.firstChild);
+    }
+
+    function swapElements() {
+        var mergerItems = document.getElementsByClassName("merger");
+        var length = mergerItems.length;
+
+        if (length >= 2) {
+            var index1 = Math.floor(Math.random() * length);
+            var index2 = Math.floor(Math.random() * length);
+            while (index1 === index2) {
+                index2 = Math.floor(Math.random() * length);
+            }
+            var element1 = mergerItems[index1];
+            var element2 = mergerItems[index2];
+
+            var container = document.getElementById('target');
+            var nextElementAfterElement2 = element2.nextElementSibling;
+            container.insertBefore(element2, element1);
+            container.insertBefore(element1, nextElementAfterElement2);
+        }
+    }
+</script>
+</html>	
